@@ -1,0 +1,126 @@
+<style>
+    .cart__row-shipping {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .cart__row-shipping>input {
+        margin-right: 1%;
+    }
+
+    .cart__row-shipping>div {
+        margin-right: 3%;
+    }
+
+    .cart__button {
+        font-size: 1.5vh;
+        padding: 2vh;
+    }
+
+    .column-cart-center h1 {
+        font-size: 3vh;
+    }
+
+    .column-cart-center h3 {
+        font-size: 2vh;
+    }
+
+    #shipping-total {
+        font-size: 2vh;
+    }
+
+    #cart-total {
+        font-size: 2vh;
+    }
+
+    #shipping-display {
+        font-size: 2vh;
+    }
+
+    input[type='radio'] {
+        margin-right: 2vh;
+        margin-left: 2vh;
+    }
+
+    @media(orientation:portrait) {
+        input[type='radio'] {
+            margin-right: 2vh;
+            margin-left: 2vh;
+        }
+    }
+</style>
+<form hidden id="payment-form">
+    <div class="column-cart">
+        <div>
+            <div>
+                <h1>
+                    Shipping Options
+                </h1>
+                <br>
+                <div id="shipping-display">
+                </div>
+            </div>
+            <div class="column-cart-center">
+                <h1>
+                    Cart Checkout
+                    <br><br>
+                </h1>
+                <h3>Shipping Total: $
+                    <span id="shipping-total">
+                    </span>
+                </h3>
+                <br>
+                {{!-- CREDIT CARD INFO --}}
+                <label>Credit Card Information
+                    <div id="card"></div>
+                </label>
+
+                <div id="card-errors" role="alert"></div>
+                <div>
+                    <span id="cart-coupon"></span><br>
+                    <h3>Total: $
+                        <span id="cart-total">
+                        </span>
+                    </h3>
+                </div>
+                <br>
+                <button class="cart__button">Submit Payment</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+    var shippingOptionsGlobal = [];
+</script>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script src="{{home}}/scripts/stripe.js"></script>
+
+<script>
+    var display_shipping_ui = function (shipping_method) {
+        document.getElementById('payment-form').removeAttribute('hidden');
+        document.getElementById('customer-form').setAttribute('hidden', true);
+
+        var shipping_ui_component = `<div class="cart__row-shipping">
+            <input type="radio" name="shipping" value="` + shipping_method.id + `">
+             <label for="shipping"><strong>$` + (shipping_method.amount / 100).toFixed(2) + `</strong></label>  
+             <label for="shipping">` + shipping_method.description + `</label>
+            </div><br>`;
+        var shipping_ui = document.getElementById('shipping-display').innerHTML + shipping_ui_component
+        document.getElementById('shipping-display').innerHTML = shipping_ui;
+    };
+    document.getElementById('shipping-display').addEventListener('click', function (event) {
+        for (var i = 0; i < shippingOptionsGlobal.length; i++) {
+            if (shippingOptionsGlobal[i].id == event.target.value) {
+                document.getElementById('shipping-total').textContent = ((shippingOptionsGlobal[i].amount).toFixed(2)) / 100;
+                selected_shipping_method_id = shippingOptionsGlobal[i].id;
+                document.getElementById('cart-total').innerHTML = (subTotalReturn() + (discountAmount / 100) + ((shippingOptionsGlobal[i].amount).toFixed(2)) / 100).toFixed(2);
+            }
+        }
+
+    });
+</script>

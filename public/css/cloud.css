@@ -1,0 +1,153 @@
+.cloud-button {
+    padding: 1vh;
+}
+
+/* SINGLE BLOG TEMPLATE */
+.cloud-single-blog {
+    font-family: sans-serif;
+    padding: 1vh;
+    outline: 1px solid rgb(131, 131, 131);
+    margin: 1vh 0 1vh 0;
+    box-shadow: 5px 10px rgba(121, 121, 121, 0.048);
+}
+
+.cloud-single-blog-image {
+    height: 12vh;
+}
+
+.cloud-single-blog-info {
+    padding: 2vh;
+}
+
+.cloud-single-blog-title {
+    margin-bottom: .5vh;
+    font-size: 2.2vh;
+}
+
+.cloud-single-blog-description {
+    font-size: 1.5vh;
+    margin-bottom: .5vh;
+}
+
+.cloud-single-blog-date {
+    font-size: 1.3vh;
+}
+
+
+
+
+/* BLOG COMMENTS */
+.cloud-comment-display {
+    font-family: sans-serif;
+    padding: 1vh;
+    outline: 1px solid rgb(131, 131, 131);
+    margin: 1vh 0 1vh 0;
+    box-shadow: 5px 10px rgba(121, 121, 121, 0.048);
+}
+
+.cloud-comment-image {
+    height: 10vh;
+}
+
+.cloud-comment-info {
+    padding: 2vh;
+}
+
+.cloud-comment-name {
+    margin-bottom: .5vh;
+    font-size: 2vh;
+}
+
+.cloud-comment-time {
+    font-size: 1.5vh;
+    margin-bottom: .5vh;
+}
+
+.cloud-comment {
+    font-size: 2vh;
+}
+
+
+/* PRODUCT REVIEW */
+.cloud-review-display {
+    font-family: sans-serif;
+    padding: 1vh;
+    outline: 1px solid rgb(131, 131, 131);
+    margin: 1vh 0 1vh 0;
+    box-shadow: 5px 10px rgba(121, 121, 121, 0.048);
+}
+
+.cloud-review-image {
+    height: 10vh;
+}
+
+.cloud-review-info {
+    padding: 2vh;
+}
+
+.cloud-review-name {
+    margin-bottom: .5vh;
+    font-size: 1.5vh;
+}
+
+.cloud-review-rating {
+    font-size: 1.5vh;
+    margin-bottom: .5vh;
+}
+
+.cloud-review {
+    font-size: 1.7vh;
+    margin-bottom: .5vh;
+}
+
+
+/* PRODUCT DISPLAY */
+.cloud-product-display {
+    font-family: sans-serif;
+    padding: 1vh;
+    outline: 1px solid rgb(131, 131, 131);
+    margin: 1vh 0 1vh 0;
+    box-shadow: 5px 10px rgba(121, 121, 121, 0.048);
+}
+
+.cloud-product-image {
+    height: 10vh;
+}
+
+.cloud-product-info {
+    padding: 2vh;
+}
+
+.cloud-product-name {
+    margin-bottom: .5vh;
+    font-size: 1.5vh;
+}
+
+.cloud-product-rating {
+    font-size: 1.5vh;
+    margin-bottom: .5vh;
+}
+
+.cloud-product-price {
+    font-size: 1.7vh;
+    margin-bottom: .5vh;
+}
+
+
+/* FILE DISPLAY */
+.cloud-file-display {
+    font-family: sans-serif;
+    padding: 1vh;
+    outline: 1px solid rgb(131, 131, 131);
+    margin: 1vh 0 1vh 0;
+    box-shadow: 5px 10px rgba(121, 121, 121, 0.048);
+}
+
+.cloud-file-info {
+    padding: 2vh;
+}
+
+.cloud-file-name {
+    margin-bottom: .5vh;
+    font-size: 1.5vh;
+}

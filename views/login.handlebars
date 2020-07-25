@@ -1,0 +1,25 @@
+<style>
+    .login__flex {
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<div id="message"></div>
+<div class="login__flex">
+    <img style="height:30vh; cursor:pointer" src="../../images/oauth-providers/google-login.png" alt="Google"
+        class="auth" auth="sign-in-with-google">
+</div>
+<br>
+<br>
+<br>
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-auth.js"></script>
+<script src="../../scripts/firebaseCloud.js"></script>
+<script src="../../scripts/engine/display.js"></script>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.css"
+        integrity="sha256-gVCm5mRCmW9kVgsSjQ7/5TLtXqvfCoxhdsjE6O1QLm8=" crossorigin="anonymous" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {{!-- GOOGLE ANALYTICS --}}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145048732-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-145048732-1');
+    </script>
+
+    {{!-- FAVICONS --}}
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+
+    <script type="application/ld+json">
+         {{{structuredData}}}
+    </script>
+
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}">
+    <script>
+        //API ADDRES
+        var API_ADDRESS = "/api/v1/"
+        var home = ""
+    </script>
+
+
+    <style>
+        .error {
+            color: red;
+            font-size: 50%;
+        }
+    </style>
+    <link rel="stylesheet" href="http://localhost/css/style.css">
+</head>
+
+<body>
+    {{>navigation}}
+    {{{body}}}
+    {{>footer}}
+</body>
+
+</html>

@@ -1,0 +1,243 @@
+<!-- SLIDER  -->
+<div class="slider__seperator"></div>
+<div class="slider">
+
+    <!-- NAVIGATIONA BACK ARROW -->
+    <img class="slider__arrow-icon" src="./img/l-arrow.png" alt="navigation arrow" id="left-arrow">
+    <!-- SLOT1 -->
+    <div class="slider__column">
+        <a class="slider__typography" id="product-link-1">
+            <!-- IMAGE -->
+            <img alt="slot1" class="slider__image animated" id="slot-1">
+            <br><br>
+            <small>MYCOTRAX</small>
+            <!-- SLOT INFO -->
+            <div class="slider__row">
+                <span class="slider__typography" id="product-name-1">Product Name</span>
+                <h3 class="slider__typography" id="product-price-1">$99.99</h3>
+                <span>&nbsp;</span>
+            </div>
+        </a>
+    </div>
+    <!-- SLOT2 -->
+    <div class="slider__column">
+        <a class="slider__typography" id="product-link-2">
+            <!--IMAGE -->
+            <img alt="slot2" class="slider__image animated" id="slot-2">
+            <br><br>
+            <small>MYCOTRAX</small>
+            <!-- SLOT INFO -->
+            <div class="slider__row">
+                <span class="slider__typography" id="product-name-2">Product Name</span>
+                <h3 class="slider__typography" id="product-price-2">$99.99</h3>
+                <span>&nbsp;</span>
+            </div>
+        </a>
+    </div>
+    <!-- SLOT3 -->
+    <div class="slider__column">
+        <a class="slider__typography" id="product-link-3">
+            <!-- IMAGE -->
+            <img alt="slot3" class="slider__image animated" id="slot-3">
+            <br><br>
+            <small>MYCOTRAX</small>
+            <!-- SLOT INFO -->
+            <div class="slider__row">
+                <span class="slider__typography" id="product-name-3">Product Name</span>
+                <h3 class="slider__typography" id="product-price-3">$99.99</h3>
+                <span>&nbsp;</span>
+            </div>
+        </a>
+    </div>
+    <!-- NAVIGATIONA FORWARDS ARROW -->
+    <img class="slider__arrow-icon" src="./img/r-arrow.png" alt="navigation arrow" id="right-arrow">
+</div>
+
+<!-- SLIDER MOBILE -->
+<div class="slider__mobile">
+    <!-- NAVIGATIONA BACK ARROW -->
+    <img class="slider__arrow-icon" src="./img/l-arrow.png" alt="navigation arrow" id="left-arrow-mobile">
+    <!-- SLOT MOBILE -->
+    <div class="slider__column">
+        <a class="slider__typography" id="product-link-mobile">
+            <!-- IMAGE -->
+            <img alt="slotmobile" class="slider__image animated" id="slot-mobile">
+            <br><br>
+            <small>MYCOTRAX</small>
+            <!-- INFO -->
+            <div class="slider__row">
+                <span class="slider__typography" id="product-name-mobile">Product Name</span>
+                <h3 class="slider__typography" id="product-price-mobile">$99.99</h3>
+                <span>&nbsp;</span>
+            </div>
+        </a>
+    </div>
+    <!-- NAVIGATIONA FORWARDS ARROW -->
+    <img class="slider__arrow-icon" src="./img/r-arrow.png" alt="navigation arrow" id="right-arrow-mobile">
+</div>
+<div class="slider__seperator"></div>
+
+
+<script>
+    // NAVIGATION ICONS
+    var rightNav = document.getElementById('right-arrow');
+    var leftNav = document.getElementById('left-arrow');
+    var rightNavMobile = document.getElementById('right-arrow-mobile');
+    var leftNavMobile = document.getElementById('left-arrow-mobile');
+
+    //SLOTS
+    var slot1 = document.getElementById('slot-1');
+    var slot2 = document.getElementById('slot-2');
+    var slot3 = document.getElementById('slot-3');
+    var slotMobile = document.getElementById('slot-mobile');
+
+
+    // SLOT 1 NAME PRICE LINK
+    var product1Name = document.getElementById('product-name-1');
+    var product1Price = document.getElementById('product-price-1');
+    var product1Link = document.getElementById('product-link-1');
+    // SLOT 2 NAME PRICE LINK
+    var product2Name = document.getElementById('product-name-2');
+    var product2Price = document.getElementById('product-price-2');
+    var product2Link = document.getElementById('product-link-2');
+    // SLOT 3 NAME PRICE LINK
+    var product3Name = document.getElementById('product-name-3');
+    var product3Price = document.getElementById('product-price-3');
+    var product3Link = document.getElementById('product-link-3');
+    // SLOT mobile NAME PRICE LINK
+    var productMobileName = document.getElementById('product-name-mobile');
+    var productMobilePrice = document.getElementById('product-price-mobile');
+    var productMobileLink = document.getElementById('product-link-mobile');
+
+
+    //STATIC DATA
+    var productInformation = [{
+        'productName': 'Cordyceps Extract',
+        'productPrice': "$29.99",
+        'productLink': home + '/products/product/prod_Fyi5pfbMZTLKef',
+        'productImage': './img/1.png'
+    },
+    {
+        'productName': "Lion's Mane Extract",
+        'productPrice': "$29.99",
+        'productLink': home + '/products/product/prod_FyiAl6f8aLfMhF',
+        'productImage': './img/3.png'
+    },
+    {
+        'productName': 'Maitake Extract ',
+        'productPrice': "$29.99",
+        'productLink': home + '/products/product/prod_FyhxqHyGZyWTmt',
+        'productImage': './img/4.png'
+    },
+    {
+        'productName': 'Chaga Extract',
+        'productPrice': "$29.99",
+        'productLink': home + '/products/product/prod_Fyhkacvz7QN6EF',
+        'productImage': './img/2.png'
+    }
+    ];
+
+
+    //COUNTER
+    var j = 0;
+
+
+    //INITIALIZE SLIDER
+
+    //MOBILE INIT
+    productMobileName.innerText = productInformation[j].productName;
+    productMobilePrice.innerText = productInformation[j].productPrice;
+    productMobileLink.href = productInformation[j].productLink;
+    slotMobile.src = productInformation[j].productImage;
+
+    //SLOT 1 INIT
+    product1Name.innerText = productInformation[j].productName;
+    product1Price.innerText = productInformation[j].productPrice;
+    product1Link.href = productInformation[j].productLink;
+    slot1.src = productInformation[j].productImage;
+
+    //SLOT 2 INIT
+    product2Name.innerText = productInformation[j + 1].productName;
+    product2Price.innerText = productInformation[j + 1].productPrice;
+    product2Link.href = productInformation[j + 1].productLink;
+    slot2.src = productInformation[j + 1].productImage;
+
+    //SLOT INIT
+    product3Name.innerText = productInformation[j + 2].productName;
+    product3Price.innerText = productInformation[j + 2].productPrice;
+    product3Link.href = productInformation[j + 2].productLink;
+    slot3.src = productInformation[j + 2].productImage;
+
+    //FORWARDS
+    rightNav.addEventListener("click", function () {
+        if (j == productInformation.length - 3) {
+            return
+        } else {
+            j++;
+            //SLOT 1
+            product1Name.innerText = productInformation[j].productName;
+            product1Price.innerText = productInformation[j].productPrice;
+            product1Link.href = productInformation[j].productLink;
+            slot1.src = productInformation[j].productImage;
+            //SLOT 2
+            product2Name.innerText = productInformation[j + 1].productName;
+            product2Price.innerText = productInformation[j + 1].productPrice;
+            product2Link.href = productInformation[j + 1].productLink;
+            slot2.src = productInformation[j + 1].productImage;
+            //SLOT 3
+            product3Name.innerText = productInformation[j + 2].productName;
+            product3Price.innerText = productInformation[j + 2].productPrice;
+            product3Link.href = productInformation[j + 2].productLink;
+            slot3.src = productInformation[j + 2].productImage;
+        }
+    })
+    //BACKWARDS
+    leftNav.addEventListener("click", function () {
+        if (j == 0) {
+            return
+        } else {
+            j--;
+            //SLOT 1
+            product1Name.innerText = productInformation[j].productName;
+            product1Price.innerText = productInformation[j].productPrice;
+            product1Link.href = productInformation[j].productLink;
+            slot1.src = productInformation[j].productImage;
+            //SLOT 2
+            product2Name.innerText = productInformation[j + 1].productName;
+            product2Price.innerText = productInformation[j + 1].productPrice;
+            product2Link.href = productInformation[j + 1].productLink;
+            slot2.src = productInformation[j + 1].productImage;
+            //SLOT 3
+            product3Name.innerText = productInformation[j + 2].productName;
+            product3Price.innerText = productInformation[j + 2].productPrice;
+            product3Link.href = productInformation[j + 2].productLink;
+            slot3.src = productInformation[j + 2].productImage;
+        }
+    })
+    //FORWARDS MOBILE
+    rightNavMobile.addEventListener("click", function () {
+        if (j == productInformation.length - 1) {
+            return
+        } else {
+            j++;
+            //MOBLE SLOT
+            slotMobile.src = productInformation[j].productImage;
+            productMobileName.innerText = productInformation[j].productName;
+            productMobilePrice.innerText = productInformation[j].productPrice;
+            productMobileLink.href = productInformation[j].productLink;
+        }
+    });
+    //BACKWARDS MOBILE
+    leftNavMobile.addEventListener("click", function () {
+        if (j == 0) {
+            return
+        } else {
+            j--;
+            //MOBLE SLOT
+            slotMobile.src = productInformation[j].productImage;
+            productMobileName.innerText = productInformation[j].productName;
+            productMobilePrice.innerText = productInformation[j].productPrice;
+            productMobileLink.href = productInformation[j].productLink;
+        };
+    });
+</script>

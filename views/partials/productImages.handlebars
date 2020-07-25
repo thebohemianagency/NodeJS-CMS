@@ -1,0 +1,64 @@
+<style>
+    .flex-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-content: center;
+    }
+
+    .image-container {
+        text-align: center;
+        height: 10vh;
+        margin: 2vh;
+    }
+
+    .slide-container {
+        text-align: center;
+    }
+
+    .slide__image {
+        height: 45vh;
+    }
+</style>
+
+<div class="slide-container">
+    <img class="animated slide__image" id="currentSlide" src="" alt="currentSlide">
+</div>
+<br>
+
+<div class="flex-row">
+    <div id="pallet" class="image-selector"></div>
+</div>
+
+<script>
+    var image_array = '{{images}}'.split(',');
+    //load main image
+    document.getElementById('currentSlide').src = image_array[0];
+    document.getElementById('currentSlide').addEventListener('animationend', function () {
+        document.getElementById('currentSlide').classList.remove('fadeIn');
+    })
+    // measure array
+    var n = image_array.length;
+    // reset insertHTML of parent
+    var htlm_pallete = document.getElementById('pallet').innerHTML = "";
+    // generate insertHtml from each item in array
+    for (var i = 0; i < n; i++) {
+        //create img and add image-i as an id;
+        var frame = document.createElement("img");
+        // frame.innerHTML = html_stroke;
+        frame.id = 'image-' + i;
+        frame.src = image_array[i];
+        frame.classList.add("image-container");
+        //appendDiv to Page
+        var pallet = document.getElementById('pallet')
+        pallet.appendChild(frame);
+    }
+    //add event listener
+    pallet.addEventListener('click', function (event) {
+        document.getElementById('currentSlide').classList.add('fadeIn');
+        document.getElementById('currentSlide').src = event.path[0].src;
+        document.getElementById('currentSlide').addEventListener('animationend', function () {
+            document.getElementById('currentSlide').classList.remove('fadeIn');
+        })
+    })
+</script>

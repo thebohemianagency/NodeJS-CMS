@@ -1,0 +1,196 @@
+<style>
+    .pockets__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        background: linear-gradient(to right, rgba(250, 250, 250, 1) 0%, rgba(237, 237, 237, 1) 100%);
+    }
+
+    .pockets__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .pockets__container {
+        padding: 2vh;
+        padding: 0vh 15% 0vh 15%;
+        background: linear-gradient(to right, rgba(250, 250, 250, 1) 0%, rgba(237, 237, 237, 1) 100%);
+    }
+
+    .pockets__header {
+        height: 45vh;
+        color: white;
+        background-size: cover;
+        background-image:
+            linear-gradient(to right, rgba(205, 222, 255, 0.295) 0%, rgba(29, 52, 97, 0.39) 100%),
+            url('./img/header2.jpg');
+    }
+
+    .pockets__dark {
+        color: white;
+        background: linear-gradient(to right, rgb(0, 9, 27) 0%, rgba(0, 19, 58, 0.3) 100%);
+    }
+
+    .pockets__light {
+        background: linear-gradient(to right, rgba(250, 250, 250, 1) 0%, rgba(237, 237, 237, 1) 100%);
+        color: #1D3461;
+    }
+
+    .pockets__text {
+        font-family: 'Raleway';
+        padding: 2vh 7vh 2vh 7vh;
+    }
+
+    .pockets__images {
+        padding: 1vh;
+        height: 36vh;
+        max-width: 60vh;
+    }
+
+    .pockets__images-grid {
+        padding: 1vh;
+        height: 20vh;
+        max-width: 20vh;
+    }
+
+    .pockets__title {
+
+        font-weight: 800;
+        padding: 3vh;
+        font-size: 4vh;
+        display: flex;
+        flex-direction: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .pockets__headings {
+        padding: 2vh;
+        font-weight: 700;
+        font-size: 4vh;
+    }
+
+    .pockets__dark {
+        padding: 2vh;
+        background-color: rgb(109, 109, 109);
+        color: white;
+    }
+
+    .about__image {
+        width: 100%;
+        height: 50vh;
+        background-image: url('img/header3.jpg');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about__image h1 {
+        font-family: 'Raleway';
+        font-size: 6vh;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+    }
+
+    @media(orientation: portrait) {
+        .pockets__container {
+            padding: 0vh 5% 0vh 5%;
+        }
+
+        .pockets__row {
+            flex-direction: column;
+        }
+
+        .pockets__reverse {
+            flex-direction: column-reverse;
+        }
+
+        .pockets__column {
+            flex-direction: row;
+        }
+
+        .pockets__images {
+            width: 100%;
+        }
+
+        .pockets__text {
+            font-family: 'Raleway';
+            padding: 2vh 1vh 2vh 1vh;
+        }
+    }
+</style>
+
+
+<!-- ADD SCROLL ANIMATION (SLIDE IN) -->
+
+<div class="about__image">
+    <h1 style="color:white;">OUR POLICIES</h1>
+</div>
+<br>
+<br>
+
+<div class="pockets__container pockets__row pockets__reverse">
+
+    <div class="pockets__text">
+        <div class="pockets__headings">RETURNS/EXCHANGES</div>
+        If you’re not 100% happy with your bag, you’re welcome to contact us within 14 days of delivery to request a
+        return or
+        exchange. To be eligible for a return, your item must be unused, in the original packaging and in the same
+        condition
+        that you received it.
+        Please email us at support@mycotrax.com and we’ll get the process started for you.
+        <br>
+        <br>
+        After we’ve provided you with the return address, please return your items within seven (7) working days. Items
+        returned
+        after seven days will not be eligible for an exchange or refund.
+        <br>
+        To complete your return, we require a receipt or proof of purchase, a tracking number, and an RMA number. Please
+        do not
+        send your purchase back to the manufacturer or we will be unable to process the return.
+        <br><br>
+        Customers are responsible for the shipping fee on sending the item(s) back to us.
+    </div>
+
+    <div class="pockets__text pockets__dark">
+        <div class="pockets__headings">REFUNDS</div>
+        Once your return is received and inspected, we’ll send you an email notifying you that your return has been
+        received. If
+        the item is in perfect condition a full refund will be processed, and a credit will automatically be applied to
+        your
+        credit card or original method of payment.
+        <br><br>
+        In certain situations non or only partial refunds can be granted:<br>
+        1. Any item not in its original condition, is damaged or missing parts for reasons not due to our error<br>
+        2. any item that is returned more than 14 days after it has been delivered.<br>
+        3. Amerii gift cards are non-refundable.<br>
+    </div>
+</div>
+
+<div class="pockets__container pockets__row pockets__reverse">
+    <div class="pockets__text">
+        <div class="pockets__headings">SHIPPING</div>
+        Please message us so we can provide the return address.
+        <br><br>
+        You will be responsible for paying for your own shipping costs for returning your item.
+        <br><br>
+        Shipping costs are non-refundable. Depending on where you live, the time it may take for your exchanged product
+        to reach
+        you, may vary. Please choose a trackable shipping service so we can track your order on its way to us. If you do
+        not use
+        a trackable service, we will not be able to guarantee a safe return to our warehouse.
+    </div>
+</div>
+
+<br>
+<br>
+<div class="pockets__text">
+    <span style="font-size:1.4vh;">Powered by <a href="https://stripe.com">Stripe</a></span>
+</div>

@@ -1,0 +1,45 @@
+<div id="subscriber__popup">
+    <div class="subscriber__popup-column">
+        <div class="subscriber__popup-image">
+            <img src="../img/1.png" alt="">
+            <img src="../img/2.png" alt="">
+            <img src="../img/3.png" alt="">
+            <img src="../img/4.png" alt="">
+        </div>
+        {{!-- <img class="subscriber__popup-image" src="../img/header2.jpg" alt=""> --}}
+        <h2 style="width:100%;padding:1vh; background:rgb(14, 14, 51); color:white; font-size:3vh; text-align:center;">
+            Enter Your
+            Email And Get All Latest New Products And Discounts</h2>
+        <div class="subscriber__popup-content">
+            <strong
+                style="width:100%; color:black; font-size:2vh; text-align:center; margin-bottom:.6vh;letter-spacing:2px;">Use
+                Coupon Code SHIP2019 For Free Shipping</strong>
+            <br>
+            <div class="subscriber__popup-row">
+                <input id="subscriber-email-input" required type="email" type="text">
+                <button id="subscriber-email-button"
+                    onclick="_XML('POST','subscribers','','create-subscribers-display','')">SUBSCRIBE</button>
+            </div>
+            <button style="margin-top:.3vh;" onclick="closeSubscriberPopup()" style="cursor:pointer;">close</button>
+        </div>
+    </div>
+</div>
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+<div id="loading"></div>
+<div id="success-pop-up"></div>
+<script src="../../scripts/engine/success-popup.js"></script>
+<script src="../../scripts/engine/pagination.js"></script>
+<script src="../../scripts/engine/functions.js"></script>
+<script src="../../scripts/engine/bodyCreate.js"></script>
+<script src="../../scripts/engine/errorHandling.js"></script>
+<script src="../../scripts/engine/templates.js"></script>
+<script src="../../scripts/engine/display.js"></script>
+
+<script>
+    var closeSubscriberPopup = function () {
+        document.getElementById('subscriber__popup').style.display = "none";
+    }
+    setTimeout(function () {
+        document.getElementById('subscriber__popup').style.display = "flex";
+    }, 5000)
+</script>

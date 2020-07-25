@@ -1,0 +1,210 @@
+<!-- COUPON PRE HEADER -->
+<div class="coupon__preheader">
+    Free Shipping Use Coupon Code <span>{{couponCode}}</span>
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <!-- MOBILE NAV BUTTON -->
+    <input type="checkbox" class="navigation__checkbox" hidden id="navi-toggle">
+    <label for="navi-toggle" class="navigation__button">
+        <span class="navigation__icon">&nbsp;</span>
+    </label>
+
+    <!-- MOBILE NAV DISPLAY -->
+    <div hidden id="nav-mobile-display" class="nav-mobile__display animated">
+
+
+        <!-- MOBILE CATEGORY -->
+        <h4 class="nav-mobile__menu-title">OUR PRODUCTS</h4>
+        <div class="nav-mobile__menu-item nav__sub-menu-item-row">
+            <img style="height:8vh; margin-right:2vh" src="{{home}}/img/4.png" alt="">
+            <a href="{{home}}/products/product/prod_Fyhkacvz7QN6EF">CHAGA MUSHROOM EXTRACT</a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item nav__sub-menu-item-row">
+            <img style="height:8vh; margin-right:2vh" src="{{home}}/img/2.png" alt="">
+            <a href="{{home}}/products/product/prod_Fyi5pfbMZTLKef">CORDYCEPS MUSHROOM EXTRACT</a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item nav__sub-menu-item-row">
+            <img style="height:8vh; margin-right:2vh" src="{{home}}/img/1.png" alt="">
+            <a href="{{home}}/products/product/prod_FyhxqHyGZyWTmt">MIATAKE MUSHROOM EXTRACT</a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item nav__sub-menu-item-row">
+            <img style="height:8vh; margin-right:2vh" src="{{home}}/img/3.png" alt="">
+            <a href="{{home}}/products/product/prod_FyiAl6f8aLfMhF">LIONS MANE MUSHROOM EXTRACT</a>
+
+        </div>
+
+
+
+        <!-- MOBILE CATEGORY -->
+        <h4 class="nav-mobile__menu-title">ABOUT</h4>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item">
+            <a href="/about">
+                ABOUT US
+            </a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item">
+            <a href="/blog">
+                BLOG
+            </a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        {{!-- <div class="nav-mobile__menu-item">
+            REVIEWS
+        </div> --}}
+        <!-- MOBILE CATEGORY -->
+        <h4 class="nav-mobile__menu-title">CUSTOMER</h4>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item">
+            <a href="/faq">FAQ</a>
+        </div>
+        <!-- MOBILE SUB CATEGORY -->
+        <div class="nav-mobile__menu-item">
+            <a href="/contact">CONTACT US</a>
+        </div>
+        <!-- MOBILE NAV IMAGE GALLERY FILLER -->
+        <div class="nav-mobile__product-display">
+            <img src="{{home}}/img/2.png" alt="">
+            <img src="{{home}}/img/1.png" alt="">
+            <img src="{{home}}/img/2.png" alt="">
+            <img src="{{home}}/img/2.png" alt="">
+        </div>
+    </div>
+    <!-- LANDSCAPE NAVIGATION -->
+    <a href="/">
+        <img class="nav__logo" src="{{home}}/img/logo.png" alt=""></a>
+    <!-- FIRST NAV ITEM CATEGORY -->
+    <div class="nav__has-drop-down nav__main-level-item">
+        <span>
+            OUR SHOP
+        </span>
+        <!-- SUB CATEGORY -->
+        <div class="nav__container">
+            <div>
+                <div class="nav__sub-menu-item">
+                    {{!-- <strong>RAW EXTRACTS</strong> --}}
+                </div>
+                <!-- DROPDOWN -->
+                <div class="nav__sub-menu-item nav__sub-menu-item-row"><img style="height:10vh; margin-right:1vh;"
+                        src="{{home}}/img/1.png" alt="">
+                    <a href="{{home}}/products/product/prod_Fyhkacvz7QN6EF">CHAGA MUSHROOMS EXTRACT</a>
+                </div>
+                <div class="nav__sub-menu-item nav__sub-menu-item-row"><img style="height:10vh; margin-right:1vh;"
+                        src="{{home}}/img/2.png" alt="">
+                    <a href="{{home}}/products/product/prod_FyhxqHyGZyWTmt">MIATAKE MUSHROOMS EXTRACT</a>
+                </div>
+
+            </div>
+            <div>
+                <div>
+                    <div class="nav__sub-menu-item nav__sub-menu-item-row"><img style="height:10vh; margin-right:1vh;"
+                            src="{{home}}/img/2.png" alt="">
+                        <a href="{{home}}/products/product/prod_FyiAl6f8aLfMhF">LIONS MANE MUSHROOMS
+                            EXTRACT</a></div>
+                    <div class="nav__sub-menu-item nav__sub-menu-item-row">
+                        <img style="height:10vh; margin-right:1vh;" src="{{home}}/img/2.png" alt="">
+                        <a href="{{home}}/products/product/prod_Fyi5pfbMZTLKef">CORDYCEPS MUSHROOMS
+                            EXTRACT</a></div>
+                </div>
+            </div>
+            <div><strong>&nbsp;</strong> </div>
+        </div>
+    </div>
+    <!-- SECOND NAV ITEM CATEGORY -->
+    <div class="nav__has-drop-down nav__main-level-item"><span>ABOUT</span>
+        <div class="nav__container">
+            <div>
+                <!-- SUB CATEGORY -->
+                <div class="nav__sub-menu-item">
+                    <strong>MYCOTRAX INFORMATION</strong>
+                </div>
+                <!-- DROPDOWN -->
+                <div class="nav__sub-menu-item"><a href="/about">ABOUT US</a></div>
+                <div class="nav__sub-menu-item"><a href="/blog">BLOG ARTICLES</a></div>
+            </div>
+            <div>
+                <strong>&nbsp;</strong>
+            </div>
+            <div><strong>&nbsp;</strong> </div>
+        </div>
+    </div>
+    <!-- THIRD NAV ITEM CATEGORY -->
+    <div class="nav__has-drop-down nav__main-level-item"><span>CUSTOMERS</span>
+        <div class="nav__container">
+            <div>
+                <!-- SUB CATEGORY -->
+                <div class="nav__sub-menu-item">
+                    <strong>CUSTOMER INFORMATION</strong>
+                </div>
+                <!-- DROPDOWN -->
+                <div class="nav__sub-menu-item"><a href="/faq">FREQUENTLY ASKED QUESTIONS</a></div>
+                <div class="nav__sub-menu-item"><a href="/contact">CONTACT US</a></div>
+            </div>
+            <div><strong>&nbsp;</strong> </div>
+            <div><strong>&nbsp;</strong> </div>
+        </div>
+    </div>
+
+    <!-- CART LINK -->
+    <a class="nav__flex-center" href="/cart"><img class="nav__cart-image" src="{{home}}/img/cart.png" alt=""><span
+            id="cart-counter-nav"></span></a>
+</nav>
+<script>
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1, c.length);
+            }
+            if (c.indexOf(nameEQ) == 0) {
+                return c.substring(nameEQ.length, c.length);
+            }
+        }
+        return null;
+    };
+
+    if (readCookie('cart') == null) {
+        var cart = [];
+    } else {
+        var cart = JSON.parse(readCookie('cart'));
+        var n = cart.length;
+        var cartCount = 0;
+        for (var i = 0; i < cart.length; i++) {
+            cartCount = cartCount + cart[i].quantity;
+        }
+        document.getElementById('cart-counter-nav').textContent = cartCount;
+    }
+</script>
+
+<script>
+    var navToggle = document.getElementById('navi-toggle');
+    var navMobileDisplay = document.getElementById('nav-mobile-display');
+    navToggle.addEventListener('click', function () {
+        if (navToggle.checked == false) {
+            animate(navMobileDisplay, "slideOutLeft", true);
+        } else {
+            animate(navMobileDisplay, "slideInLeft", false);
+        }
+    })
+    //ANIMATION SCRIPT
+    var animate = function (elem, animation, hide) {
+        if (!elem || !animation) return;
+        elem.removeAttribute('hidden');
+        elem.classList.add(animation);
+        elem.addEventListener('animationend', function endAnimation(event) {
+            elem.classList.remove(animation);
+            if (hide) {
+                elem.setAttribute('hidden', 'true');
+            }
+            elem.removeEventListener('animationend', endAnimation, false);
+        }, false);
+    };
+</script>

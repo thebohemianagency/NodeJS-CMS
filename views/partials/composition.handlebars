@@ -1,0 +1,56 @@
+<!-- COMPOSITION -->
+<div id="composition">
+    <div class="composition__row">
+        <div class="composition__image-container">
+            <div class="composition__row-alt">
+                <img src="./img/2.png" alt="Image 1" onmouseover="displayText('chaga')"
+                    class="composition__image composition__image-primary">
+                <img src="./img/1.png" alt="Image 2" onmouseover="displayText('cordyceps')"
+                    class="composition__image composition__image-primary">
+            </div>
+
+            <div class="composition__row-alt">
+                <img src="./img/3.png" alt="Image 2" onmouseover="displayText('lionsmane')"
+                    class="composition__image composition__image-primary">
+                <img src="./img/4.png" alt="Image 2" onmouseover="displayText('miatake')"
+                    class="composition__image composition__image-primary">
+            </div>
+        </div>
+        <div id="composition-content" class="composition__text">
+            <h1>100% Organic & 100% Healthy </h1><br>
+            <img style="height:15vh;" src="{{home}}/img/lab-chaga.png" alt="">
+            <img style="height:15vh;" src="{{home}}/img/lab-miatake.png" alt="">
+            <img style="height:15vh;" src="{{home}}/img/lab-lion.png" alt="">
+            <img style="height:15vh;" src="{{home}}/img/lab-cordyceps.png" alt="">
+            <br>
+            <p>All of Our Mushrooms Extract 100% Certified Organic and USDA Approved Try All 4 of our mushroom extracts:
+                Miatake, Cordyceps, Lion's Mane and Chaga</p>
+        </div>
+
+    </div>
+</div>
+<script>
+    var compositionContent = document.getElementById('composition-content');
+
+    var displayText = function (select) {
+
+        if (select == 'chaga') {
+            compositionContent.innerHTML = ""
+            compositionContent.innerHTML =
+                "<img style='height: 20vh;' src='" + home + "/img/lab-chaga.png'><h1>Chaga Mushroom - Clear Source</h1><p>Chaga is purported to reduce inflammation, boost the immune system, enhance liver health, and fight viruses. In addition, some proponents claim that chaga has anti-tumor activity and can help treat and/or prevent some forms of cancer.</p>"
+        }
+        if (select == 'lionsmane') {
+            compositionContent.innerHTML = ""
+            compositionContent.innerHTML =
+                "<img style='height: 20vh;' src='" + home + "/img/lab-lion.png'><h1>Lion's Mane - Head Rush </h1><p>Proponents claim that lion's mane can help with a variety of health problems, including: Alzheimer's disease, Anxiety, Depression, High cholesterol, Inflammation And Ulcers</p>"
+        }
+        if (select == 'miatake') {
+            compositionContent.innerHTML = ""
+            compositionContent.innerHTML = "<img style='height: 20vh;' src='" + home + "/img/lab-miatake.png'><h1>Miatake Mushroom - Soul Clarity</h1><p>Maitake is often said to boost immune function and, in turn, fight certain infections. Maitake is also touted as a natural remedy for diabetes, high blood pressure, and high cholesterol. It's even being researched as a potential cancer-fighter.</p>"
+        }
+        if (select == 'cordyceps') {
+            compositionContent.innerHTML = ""
+            compositionContent.innerHTML = "<img style='height: 20vh;' src='" + home + "/img/lab-cordyceps.png'><h1>Cordyceps - Power Surge</h1><p>Cordyceps is also purported to boost athletic performance, a claim that grabbed headlines in 1993 when Chinese track and field athletes shattered multiple world records, a feat their coach attributed to C. sinesis supplements.</p>"
+        }
+    }
+</script>

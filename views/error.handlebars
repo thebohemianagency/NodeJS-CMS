@@ -1,0 +1,27 @@
+<style>
+    .error__container {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5vh;
+    }
+
+    .error__container>i {
+        font-size: 20vh;
+        color: red;
+    }
+
+    .error__container>a {
+        font-size: 2vh;
+        color: black;
+    }
+</style>
+<div class="error__container">
+    <i class="fa fa-times"></i>
+    <h1>{{description}}</h1>
+    <p>There Was An Error Finding Your Page</p>
+    <br>
+    <a href="/">Back Home</a>
+</div>

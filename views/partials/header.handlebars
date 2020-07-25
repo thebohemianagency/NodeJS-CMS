@@ -1,0 +1,110 @@
+<style>
+    #slide-img {
+        background-image: url("./img/header3.jpg");
+    }
+
+    #slide-img-holder {
+        display: none;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        height: 80vh;
+        width: 100%;
+        background-image: url("./img/header1.jpg");
+    }
+</style>
+<!-- HEADER -->
+<div id="slide">
+    <div id="slide-img-holder" class="animated"></div>
+    <div id="slide-img" class="slide-img animated">
+        <div class="animated" id="slide-caption">
+            <img id="car-slide-image" style="height:40vh;" src="./img/2.png" alt="">
+            <br>
+            <div id="car-slide-text">
+                Chaga Mushroom Extact <br> 100% Organic
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //DOM VARIABLES
+    var carSlideImage = document.getElementById('car-slide-image');
+    var carSlideText = document.getElementById('car-slide-text');
+    var slideImage = document.getElementById('slide-img');
+    var slideImageHolder = document.getElementById('slide-img-holder');
+    var slide = document.getElementById('slide');
+    var slideCaption = document.getElementById('slide-caption');
+    var subheaderArray = ["Cordyceps Mushroom Extact <br> 100% Organic",
+        "Lion's Mane Mushroom Extract <br> 100% Organic", "Chaga Mushroom Extact <br> 100% Organic"
+    ]
+
+    //IMAGEs
+    var subheadeImageArray = ["./img/1.png", "./img/3.png", "./img/2.png"]
+
+    //COUNTER
+    var z = 1;
+
+    //TEXT/IMAGE FADE IN ANIMATION
+    slideCaption.setAttribute('hidden', true);
+    setTimeout(function () {
+        animate(slideCaption, "fadeIn", false);
+    }, 1000)
+
+
+    //CAROUSLE TIMER
+    setInterval(function () {
+        slideCaption.setAttribute('hidden', true);
+        slideImageHolder.style.display = "inline-block";
+        animateCarousel(slideImageHolder, 'slideOutLeft', true);
+        animate(slideImage, "slideInRight", false);
+        slideImage.style.backgroundImage = "url(./img/header" + z + ".jpg)";
+        setTimeout(function () {
+            animate(slideCaption, "fadeIn", false);
+        }, 400)
+        if (z == 1) {
+            carSlideText.innerHTML = "";
+            carSlideImage.src = subheadeImageArray[z - 1];
+            carSlideText.innerHTML = subheaderArray[z - 1];
+
+            slideImageHolder.style.backgroundImage = "url(./img/header" + 3 + ".jpg)";
+        } else {
+            carSlideText.innerHTML = "";
+            slideImageHolder.style.backgroundImage = "url(./img/header" + (z - 1) + ".jpg)";
+            carSlideImage.src = subheadeImageArray[z - 1];
+            carSlideText.innerHTML = subheaderArray[(z - 1)];
+        }
+        z++;
+        if (z > 3) {
+            z = 1;
+        }
+    }, 4000);
+
+    //ANIMATION FOR CAROUSEL
+    var animateCarousel = function (slide, animation, hide) {
+        if (!slide || !animation) return;
+        slide.classList.add(animation);
+        slide.removeAttribute('hidden');
+        slide.addEventListener('animationend', function endAnimation(event) {
+            slide.classList.remove(animation);
+            if (hide) {
+                slide.style.display = "none";
+            }
+            slide.removeEventListener('animationend', endAnimation, false);
+        }, false);
+    };
+
+    //ANIMATION FOR TEXT
+    var animate = function (elem, animation, hide) {
+        if (!elem || !animation) return;
+        elem.removeAttribute('hidden');
+        elem.classList.add(animation);
+        elem.addEventListener('animationend', function endAnimation(event) {
+            elem.classList.remove(animation);
+            if (hide) {
+                elem.setAttribute('hidden', 'true');
+            }
+            elem.removeEventListener('animationend', endAnimation, false);
+        }, false);
+    };
+</script>

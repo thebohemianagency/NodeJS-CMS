@@ -1,0 +1,283 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<link rel="stylesheet" href="../../css/reviewStars.css">
+<link rel="stylesheet" href="../../css/loading.css">
+
+<style>
+    .product__reviews {
+        padding: 5vh 20% 5vh 20%;
+    }
+
+    .products__reviews-button {
+
+        padding: 1vh;
+        width: 10vh;
+    }
+
+    .value-button {
+        font-size: 1.4vh;
+        display: inline-block;
+        border: 1px solid #ddd;
+        margin: 0px;
+        width: 4vh;
+        height: 4vh;
+        text-align: center;
+        vertical-align: middle;
+        padding: 11px 0;
+        background: #eee;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .value-button:hover {
+        cursor: pointer;
+    }
+
+    #decrease {
+        margin-right: -4px;
+        border-radius: 8px 0 0 8px;
+    }
+
+    #increase {
+        margin-left: -4px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    input#product-quantity {
+        padding: 3px 0;
+        text-align: center;
+        border: none;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        margin: 0px;
+        width: 2vh;
+        height: 4vh;
+        font-size: 2vh;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .product__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .product__title {
+        font-size: 4vh;
+        margin-left: 20%;
+    }
+
+    .product__price {
+        margin-left: 20%;
+        font-size: 3vh;
+        color: rgb(46, 46, 46);
+    }
+
+    .product__rating {
+        font-size: 1.3vh;
+        margin-left: 20%;
+    }
+
+
+    .product__content {
+        width: 50%;
+    }
+
+    .product__button {
+        padding: 1vh;
+    }
+
+    .product__information {
+
+        font-size: 2.2vh;
+        padding: 6vh;
+        background: rgba(255, 255, 255, 0.205);
+        width: 50%;
+
+    }
+
+    @media(orientation:portrait) {
+        .product__row {
+            flex-direction: column;
+        }
+
+        .product__content {
+            width: 100%;
+        }
+
+        .product__information {
+            width: 100%;
+        }
+
+        .product__title {
+            margin-left: 10%;
+        }
+
+        .product__price {
+            margin-left: 10%;
+        }
+
+        .product__rating {
+            margin-left: 10%;
+        }
+
+        .product__reviews {
+            padding: 4vh 3% 4vh 3%;
+        }
+    }
+</style>
+
+<br>
+<br>
+
+<div class="product__row">
+    <div class="product__content">
+        <h3 class="product__title" id="title">{{product.name}}</h3>
+        <h4 class="product__price">
+            ${{product.metadata.price}}
+        </h4>
+        <span>
+
+            <div id="product-rating" class="stars product__rating"> </div>
+            <small class="product__rating">{{product.metadata.rating}} / 5</small>
+        </span>
+        <br>
+        {{>productImages}}
+        {{> share}}
+    </div>
+    <div class="product__information">
+        <div id="product-display"></div>
+        {{#each skus.data}}
+        <button class="product__button" onclick="_XML('GET', 'products/sku','{{this.id}}', 'sku-display')">
+            {{this.attributes.size}}
+        </button>
+        {{/each}}
+        <div id="sku-display">
+            <br>
+            <p><strong>size: </strong>{{firstSKUSize}}</p>
+            <br>
+            <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-
+            </div>
+            <input type="number" id="product-quantity" value="1" />
+            <div class="value-button" id="increase" onclick="increaseValue({{firstSKUQuantity}})"
+                value="Increase Value">+</div>
+            <small>{{firstSKUQuantity}} Remaining</small>
+            <br><br>
+            <h2>${{firstSKUPrice}}</h2>
+            <br>
+            <button class="product__button"
+                onclick="addProductToCart('{{firstSKUID}}','{{product.name}}  {{firstSKUSize}}','{{firstSKUPrice}}','{{firstSKUImage}}',{{firstSKUQuantity}})">Add
+                To Cart</button>
+        </div>
+    </div>
+</div>
+
+<div class="product__reviews">
+    {{>create-review}}
+    <br>
+    <br>
+    <h2>Recent Reviews</h2>
+    <br>
+    <button class="products__reviews-button"
+        onclick="_XML('GET','reviews','?prod_id={{prod_id}}&sort=-createdAt&page=1&limit=10','reviews-display', '')">NEWEST</button>
+    <button class="products__reviews-button"
+        onclick="_XML('GET','reviews','?prod_id={{prod_id}}&sort=createdAt&page=1&limit=10','reviews-display', '')">OLDEST</button>
+    <button class="products__reviews-button"
+        onclick="_XML('GET','reviews','?prod_id={{prod_id}}&sort=-rating&page=1&limit=10','reviews-display', '')">HIGHEST</button>
+    <button class="products__reviews-button"
+        onclick="_XML('GET','reviews','?prod_id={{prod_id}}&sort=rating&page=1&limit=10','reviews-display', '')">LOWEST</button>
+    <br><br>
+
+    <div id="reviews-display">
+    </div>
+    <br>
+    <div id="reviews-paginate"></div>
+
+</div>
+
+
+
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+<div id="success-pop-up"></div>
+
+<div id="loading"></div>
+{{!-- UX ENGINE --}}
+<script src="../../scripts/engine/success-popup.js"></script>
+<script src="../../scripts/engine/functions.js"></script>
+<script src="../../scripts/engine/bodyCreate.js"></script>
+<script src="../../scripts/engine/errorHandling.js"></script>
+<script src="../../scripts/engine/templates.js"></script>
+<script src="../../scripts/engine/display.js"></script>
+<script src="../../scripts/engine/pagination.js"></script>
+<script src="../../scripts/cart.js"></script>
+
+<script>
+    var productContent = `{{{product.description}}}`
+    document.getElementById('product-display').innerHTML = productContent
+
+    var productRating = "{{product.metadata.rating}}";
+    productRating = productRating;
+    var rating_html = '';
+    for (var j = 0; j < productRating; j++) {
+        rating_html = rating_html + '<i class="fas fa-star solid"></i>';
+    }
+    document.getElementById('product-rating').innerHTML = rating_html
+    function increaseValue(totalQty) {
+        var value = parseInt(document.getElementById('product-quantity').value, 10);
+        value = isNaN(value) ? 0 : value;
+        if (value < totalQty) {
+            value++;
+        }
+        document.getElementById('product-quantity').value = value;
+    }
+
+    function decreaseValue() {
+        var value = parseInt(document.getElementById('product-quantity').value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        if (value != 1) {
+            value--;
+        }
+        document.getElementById('product-quantity').value = value;
+    }
+
+    var prod_id = "{{prod_id}}";
+    _XML('GET', 'reviews', '?prod_id=' + prod_id + '&page=1&limit=3', 'reviews-display')
+
+    var getProductId = function () {
+        return prod_id;
+    }
+    var createReviewQuery = function () {
+        return '?prod_id=' + getProductId() + '&page=1&limit=3'
+    }
+
+
+    var soldOut = "{{firstSKUQuantity}}";
+    if (soldOut == 0) {
+        document.getElementById('sku-display').innerHTML = `<p>NAME:{{firstSKUName}}</p><p>QUANTITY: SOLD OUT</p>`
+    }
+
+    rating = null;
+    var getRating = function (i) {
+        for (var q = 1; q < 6; q++) {
+            document.getElementById('star-' + q).style.color = "black";
+            document.getElementById('star-' + q).style.opacity = 0.2;
+        }
+        for (var j = 1; j < i + 1; j++) {
+            document.getElementById('star-' + j).style.color = "gold";
+            document.getElementById('star-' + j).style.opacity = 1;
+        }
+        rating = i;
+    }
+
+</script>

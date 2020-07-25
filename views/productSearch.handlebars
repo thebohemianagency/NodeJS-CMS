@@ -1,0 +1,219 @@
+<style>
+    .products {
+        font-family: "Raleway";
+        padding: 4vh;
+    }
+
+    .products__header-image {
+        width: 100%;
+        height: 25vh;
+        background-image: url('img/header3.jpg');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .products__header-image h1 {
+        font-family: 'Raleway';
+        font-size: 6vh;
+        color: white;
+        text-align: center;
+    }
+
+    .products__row {
+        padding: 2vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: solid rgb(196, 196, 196) 1px;
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+
+    .products__row-alt {
+        padding: 2vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: solid rgb(196, 196, 196) 1px;
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+
+    .products__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .products__image {
+        width: 10%;
+
+        margin-right: 2vh;
+    }
+
+    .products__title {
+        font-size: 4vh;
+        width: 100%;
+    }
+
+    .products__price {
+        padding: 2vh;
+        font-size: 2vh;
+    }
+
+    .products__rating {
+        margin-left: 2vh;
+    }
+
+    .products__link {
+        padding: 1vh;
+        font-weight: bold;
+        text-decoration: none;
+        border-bottom: none;
+        color: black;
+        margin-left: 1vh;
+    }
+</style>
+<style>
+    .results {
+        padding: 2vh;
+    }
+
+    .results__title {
+        font-size: 5vh;
+    }
+
+    .results__row {
+        margin-top: 4vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .results__buttons {
+        width: 20%;
+        padding: 2vh;
+        margin-left: 5vh;
+    }
+
+    .results__buttons>button {
+        padding: 2vh;
+        width: 100%;
+    }
+
+    .result__paginate {
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+
+    @media(orientation:portrait) {
+        .results__row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .products__row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-bottom: solid rgb(196, 196, 196) 1px;
+            margin-bottom: 1vh;
+            width: 100%;
+        }
+
+        .results__buttons {
+            width: 100%;
+            padding: 0vh;
+            margin-left: 0vh;
+        }
+
+        .result__paginate {
+            margin-top: 0;
+            margin-left: 0;
+        }
+
+    }
+</style>
+
+
+<link rel="stylesheet" href="./../css/reviewStars.css">
+<link rel="stylesheet" href="./../css/loading.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+
+<div class="results">
+
+    <div class="results__row">
+
+        <div class="results__buttons">
+            <span class="results__title">Our Products</span>
+            <p style="font-size:2vh">Check Out Our Full Selection Of Mushrooms</p>
+            <br>
+            <button
+                onclick="_XML('GET','products','?search={{query}}&price=h2l&page=1&limit=10','products-display', '')">HIGHEST
+                PRICE
+            </button><br>
+            <button
+                onclick="_XML('GET','products','?search={{query}}&price=l2h&page=1&limit=10','products-display', '')">LOWEST
+                PRICE</button><br>
+            <button
+                onclick="_XML('GET','products','?search={{query}}&rating=h2l&page=1&limit=10','products-display', '')">HIGHEST
+                Rating
+            </button><br>
+            <button
+                onclick="_XML('GET','products','?search={{query}}&rating=l2h&page=1&limit=10','products-display', '')">LOWEST
+                RATING</button><br>
+            <br>
+            <br>
+        </div>
+
+        <div id="products-display"></div>
+
+    </div>
+    <div class="result__paginate" id="products-paginate"></div>
+    <br>
+</div>
+
+
+
+
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+
+
+<div id="loading"></div>
+
+
+
+
+
+
+{{!-- UX ENGINE --}}
+<script src="./../scripts/engine/functions.js"></script>
+<script src="./../scripts/engine/bodyCreate.js"></script>
+<script src="./../scripts/engine/errorHandling.js"></script>
+<script src="./../scripts/engine/templates.js"></script>
+<script src="./../scripts/engine/display.js"></script>
+<script src="./../scripts/engine/pagination.js"></script>
+<script>
+    var search = "{{query}}";
+    if (search) {
+        _XML('GET', 'products', '?search=' + search + '&page=1&limit=4', 'products-display', '')
+    } else {
+        _XML('GET', 'products', '?page=1&limit=4', 'products-display', '')
+    }
+</script>

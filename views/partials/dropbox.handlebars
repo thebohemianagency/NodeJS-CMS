@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="./../css/dropbox.css">
+<div hidden id="file-upload">
+    <div class="dropbox">
+        <input id="attachments" type="file" multiple name="uploadFieldName" onchange="save()" class="input-file">
+        <div class="container" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+            <p>Drag one or more files to this Drop Zone ...</p>
+        </div>
+    </div>
+    <div id='displayFiles'></div>
+    <button class="cloud-button" onclick="uploadFiles()">Upload</button>
+</div>
+<script src="./../scripts/dropbox.js"></script>

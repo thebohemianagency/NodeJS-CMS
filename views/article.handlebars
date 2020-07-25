@@ -1,0 +1,294 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+    /* container */
+    #share {
+        width: 100%;
+
+    }
+
+    /* buttons */
+    #share a {
+        font-size: 2vh;
+        opacity: 0.75;
+        transition: opacity 0.15s linear;
+    }
+
+    #share a:hover {
+        opacity: 1;
+    }
+
+    /* icons */
+
+    #share i {
+        position: relative;
+        color: black;
+    }
+
+    /* colors */
+
+    .facebook {
+        color: #3b5998;
+    }
+
+    .twitter {
+        color: #55acee;
+    }
+
+    .googleplus {
+        color: #dd4b39;
+    }
+
+    .linkedin {
+        color: #0077b5;
+    }
+
+    /* SUBSCRIBERS POP UP */
+
+    #subscriber__popup {
+        font-family: "Raleway";
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.24);
+        display: none;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 20000;
+    }
+
+    .subscriber__popup-column {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        background-color: white;
+    }
+
+    .subscriber__popup-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .subscriber__popup-image {
+        width: 100%;
+    }
+
+    .subscriber__popup-content {
+        padding: 2vh 2vh 5vh 2vh;
+        text-align: center;
+    }
+
+    .subscriber__popup-content>div>input {
+        font-family: "Raleway";
+        font-size: 3.3vh;
+        height: 4vh;
+        width: 80%;
+    }
+
+    .subscriber__popup-content>div>button {
+        padding: 1vh;
+    }
+
+    @media (orientation: portrait) {
+        .subscriber__popup-column {
+            width: 100%;
+
+        }
+    }
+
+    .comments__container {
+        margin-top: 2vh;
+        border-top: solid 1px rgba(0, 0, 0, 0.297);
+        width: 100%;
+    }
+</style>
+<style>
+    .banner-ad__link {
+        text-decoration: none;
+    }
+
+    .banner-ad__lionsmane {
+        background-image: url("../img/header1.jpg");
+    }
+
+    .banner-ad__chaga {
+        background-image: url("../img/header2.jpg");
+    }
+
+    .banner-ad__mycotrax {
+        background: white;
+    }
+
+    .banner-ad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+        height: 30vh;
+        width: 40vh;
+    }
+
+    small {
+        font-size: 1.5vh;
+    }
+</style>
+
+
+{{!-- BREADCRUMB --}}
+<br>
+<small style="margin-left:8%;"><a style="text-decoration: none; color:black;" href="/blog">Blogs</a> >
+    {{article.title}}</small>
+<br>
+{{!-- ARTICLE --}}
+<div id="article">
+    <div class="article__column-main">
+        <h1 id="title" class="article__title">{{article.title}}</h1>
+        <small>BY ANTHONY GIANANTE</small>
+        <small>January 31st 2019</small>
+        <div id="share">
+        </div>
+        <div id="article-display" class="article__content">
+            {{!-- DYNAMIC --}}
+        </div>
+        <div class="article__author-container">
+            <img src="..img/mycotrax.png" style="height:5vh; width:5vh; padding:2vh; border-radius:50%;" alt="">
+            <div>
+                <h3>By: Anthony Giansante</h3>
+                <div id="share-alt">
+                </div>
+                <small>January 31st 2019</small>
+            </div>
+        </div>
+        {{!-- COMMENTS --}}
+        <div class="comments__container">
+            {{>comment}}
+            <h2>Recent Comments</h2>
+            <div id="comments-display">
+            </div>
+            <br>
+            <br>
+            <div id="comments-paginate"></div>
+        </div>
+    </div>
+    {{!-- SECONDARY COLUMN --}}
+    <div class="article__column-secondary">
+
+        <a class="banner-ad__link" href="{{home}}/products/product/prod_FyiAl6f8aLfMhF">
+            <div class="banner-ad__chaga banner-ad">
+                <img style="height:15vh" src="../img/2.png" alt="">
+                <small style="color:white">Chaga Extract</small>
+                <small style="color:white">100% Organic</small>
+            </div>
+        </a>
+        <br>
+        <a class="banner-ad__link" href="{{home}}">
+            <div class="banner-ad__chaga banner-ad">
+                <img style="height:15vh" src="../img/logo.png" alt="">
+                <small style="color:white">MYCOTRAX</small>
+                <small style="color:white">100% Organic</small>
+            </div>
+        </a>
+        <br>
+
+        <a class="banner-ad__link" href="{{home}}/products/product/prod_FyiAl6f8aLfMhF">
+            <div class="banner-ad__lionsmane banner-ad">
+                <img style="height:15vh" src="../img/1.png" alt="">
+                <small style="color:white">Lion's Mane Extract</small>
+                <small style="color:white">100% Organic</small>
+            </div>
+        </a>
+
+
+        <br><br>
+    </div>
+</div>
+
+<div id="success-pop-up"></div>
+<script src="../../scripts/engine/success-popup.js"></script>
+
+{{>subscribePopUp}}
+{{!-- CSRF TOKEN --}}
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+{{!-- LOADING ANIMATION --}}
+<div id="loading"></div>
+
+<script>
+    var closeSubscriberPopup = function () {
+        document.getElementById('subscriber__popup').style.display = "none";
+    }
+    setTimeout(function () {
+        document.getElementById('subscriber__popup').style.display = "flex";
+    }, 5000)
+</script>
+
+<script>
+    //GET URL
+    var url = window.location.href;
+    //GET TITLE
+    var title = document.getElementById('title').textContent;
+    //GET SOURCE
+    var source = 'NONE'
+
+
+    document.getElementById('share').innerHTML = ""
+    document.getElementById('share').innerHTML =
+        `<a class="facebook" href="https://www.facebook.com/share.php?u=` + url + `&title=` + title + `" target="blank"><i class="fab fa-facebook-f"></i></a>
+     <a class="twitter" href="https://twitter.com/intent/tweet?status=` + title + `+` + url + `" target="blank"><i class="fab fa-twitter"></i></a>
+     <a class="googleplus" href="https://plus.google.com/share?url=` + url + `" target="blank"><i class="fab fa-google-plus"></i></a>
+     <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=` + url + `&title=` + title +
+        `&source=` + source + `"target="blank"><i class="fab fa-linkedin-in"></i></a>`
+
+    document.getElementById('share-alt').innerHTML = ""
+    document.getElementById('share-alt').innerHTML =
+        `<a class="facebook" href="https://www.facebook.com/share.php?u=` + url + `&title=` + title + `"
+              target="blank"><i class="fab fa-facebook-f"></i></a>
+          <a class="twitter" href="https://twitter.com/intent/tweet?status=` + title + `+` + url + `" target="blank"><i
+                  class="fab fa-twitter"></i></a>
+          <a class="googleplus" href="https://plus.google.com/share?url=` + url + `" target="blank"><i
+                  class="fab fa-google-plus"></i></a>
+          <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=` + url + `&title=` + title +
+        `&source=` + source + `" target="blank"><i class="fab fa-linkedin-in"></i></a>`
+</script>
+
+
+<script src="../../scripts/engine/pagination.js"></script>
+<script src="../../scripts/engine/functions.js"></script>
+<script src="../../scripts/engine/bodyCreate.js"></script>
+<script src="../../scripts/engine/errorHandling.js"></script>
+<script src="../../scripts/engine/templates.js"></script>
+<script src="../../scripts/engine/display.js"></script>
+<script>
+    String.prototype.unescapeHtml = function () {
+        var temp = document.createElement("div");
+        temp.innerHTML = this;
+        var result = temp.childNodes[0].nodeValue;
+        temp.removeChild(temp.firstChild);
+        return result;
+    }
+    var articleContent = `{{{content}}}`
+    articleContent = articleContent.unescapeHtml();
+    document.getElementById('article-display').innerHTML = articleContent
+
+    var blog_id = "{{article.id}}";
+    _XML('GET', 'comments', '?blog_id=' + blog_id + '&page=1&limit=3', 'comments-display')
+
+
+    var getBlogId = function () {
+        return blog_id;
+    }
+    var createCommentQuery = function () {
+        return '?blog_id=' + blog_id + '&page=1&limit=5'
+    }
+
+
+</script>

@@ -1,0 +1,56 @@
+<style>
+    #create-comments-display {}
+
+    #create-comments-display>label {
+        font-weight: bold;
+    }
+
+    #create-comments-display>button {
+        outline: none;
+        border: none;
+        float: right;
+        padding: 1vh;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    #comment {
+        width: 100%;
+        height: 10vh;
+        resize: none;
+        font-size: 2vh;
+
+    }
+</style>
+
+<div id="create-comments-display">
+    <br>
+    <label for="comment">Add Comment</label><br><br>
+    <textarea name="text-input" id="comment" type="text"></textarea>
+    <br><br>
+    <div id="message"></div>
+    <img style="height:8vh; cursor:pointer; float:right;" class="auth" auth="sign-in-with-google"
+        src="../../images/oauth-providers/google.png" alt="Google">
+    {{!-- <button><img style="height:3vh; width:3vh;" class="auth" auth="sign-in-with-facebook"
+            src="../../images/oauth-providers/facebook.png" alt="Google"><br>Post</button>
+    <button><img style="height:3vh; width:3vh;" class="auth" auth="sign-in-with-twitter"
+            src="../../images/oauth-providers/twitter.png" alt="Google"><br>Post</button> --}}
+    <br>
+    <br>
+    <br>
+    <br>
+</div>
+
+
+
+<script>
+    var userImageLink = '';
+    var userDisplayName = '';
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase-auth.js"></script>
+<script src="../../scripts/firebaseComment.js"></script>
+
+<script>
+    signOut()
+</script>

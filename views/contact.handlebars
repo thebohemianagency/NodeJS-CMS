@@ -1,0 +1,155 @@
+<style>
+    .contact__container {
+        padding: 6vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .contact__row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .contact__input {
+        width: 80%;
+        font-size: 4vh;
+
+    }
+
+    .contact__button {
+        float: right !important;
+        padding: 2vh;
+        width: 20%;
+    }
+
+    .contact__label {
+        font-size: 2vh;
+        width: 20%;
+    }
+
+    .contact__textarea {
+        font-size: 2vh;
+        width: 80%;
+        height: 20vh;
+    }
+
+    .contact__image {
+        width: 100%;
+        height: 50vh;
+        background-image: url('img/header3.jpg');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact__image h1 {
+        font-family: 'Raleway';
+        font-size: 6vh;
+        text-align: center;
+        color: rgb(255, 255, 255);
+        font-weight: 500;
+    }
+
+    @media(orientation:portrait) {
+        .contact__label {
+            font-size: 1vh;
+            width: 20%;
+        }
+    }
+</style>
+
+<div class="contact__image">
+    <h1 style="color:white; font-weight:500">CONTACT US</h1>
+</div>
+<div class="composition__image-container">
+    <br>
+    <div class="composition__row-alt">
+        <img style="margin:1vh;" src="{{home}}/img/1.png" alt="">
+        <img style="margin:1vh;" src="{{home}}/img/2.png" alt="">
+        <img style="margin:1vh;" src="{{home}}/img/3.png" alt="">
+        <img style="margin:1vh;" src="{{home}}/img/4.png" alt="">
+    </div>
+</div>
+<br>
+<br>
+<div class="contact__row">
+    <div>
+        <img style="height:10vh;" src="{{home}}/img/mycotrax.png" alt="">
+    </div>
+    <div style="margin-left:5vh;" class="contact__address">
+
+        <h2>MYCOTRAX OFFICE</h2>
+        <p style="font-size:1.6vh">
+            Tel: 604-340-5877<br>
+            Toronto, Canada<br>
+            support@mycotrax.com
+        </p>
+    </div>
+
+</div>
+
+
+<div id="contact-form" class="contact__container">
+    <div class="contact__row">
+        <div class="contact__label" for="contact-name">ENTER NAME *</div>
+        <input class="contact__input" id="contact-name" type="text">
+    </div>
+    <br>
+    <br>
+    <div class="contact__row">
+        <label class="contact__label" for="contact-email">ENTER EMAIL *</label>
+        <input class="contact__input" id="contact-email" type="text">
+    </div>
+    <br>
+    <br>
+    <div class="contact__row">
+        <label class="contact__label" for="contact-email">QUESTION *</label>
+        <textarea class="contact__textarea" id="contact-question"></textarea>
+    </div>
+    <br>
+    <br>
+    <div style="width:100%;">
+        <button class="contact__button" onclick="sendEmail()">SEND</button>
+    </div>
+
+</div>
+
+
+
+
+<div id="success-pop-up"></div>
+<script src="./../scripts/engine/success-popup.js"></script>
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+<script src="./../scripts/engine/bodyCreate.js"></script>
+<script src="./../scripts/engine/templates.js"></script>
+<script src="./../scripts/engine/errorHandling.js"></script>
+<script>
+    var sendEmail = function () {
+        //remove errors
+        removeErrorMessages();
+        var API_ADDRESS = home + "/api/v1/subscribers/contact"
+        var xmlhttp = new XMLHttpRequest();
+        var data = sendContactEmailBody();
+        xmlhttp.open("POST", API_ADDRESS, true);
+        xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlhttp.setRequestHeader("X-CSRF-Token", _csrf.value);
+        //set CSRF
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState === 4 && xmlhttp.status > 199 && xmlhttp.status < 320) {
+                document.getElementById('contact-form').innerHTML = "<h1 style='padding:10vh; font-size:3vh;'>Message Sent!! We Will Respond as quickly as possible.</h1>"
+
+            }
+        }
+        if (document.getElementsByClassName('error').length == 0) {
+            xmlhttp.send(JSON.stringify(data));
+        }
+    } 
+</script>

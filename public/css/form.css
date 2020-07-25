@@ -1,0 +1,33 @@
+.wrapper {
+    font-family: sans-serif;
+    background-color: rgb(250, 250, 250);
+    list-style-type: none;
+    padding: 0;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.form-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: .5em;
+}
+
+.form-row>label {
+    padding: .5em 1em .5em 0;
+    flex: 1;
+}
+
+.form-row>input {
+    flex: 2;
+}
+
+.form-row>textarea {
+    flex: 2;
+}
+
+.form-row>input,
+.form-row>button,
+.form-row>textarea {
+    padding: .5em;
+}

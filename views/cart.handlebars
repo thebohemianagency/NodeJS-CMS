@@ -1,0 +1,24 @@
+<div id="success-pop-up"></div>
+<script src="../../scripts/engine/success-popup.js"></script>
+<script src="../../scripts/checkout.js"></script>
+
+
+<style>
+    .cart {
+        margin: 5% 20% 5% 20%;
+    }
+
+    @media(orientation:portrait) {
+        .cart {
+            margin: 5% 1% 5% 1%;
+        }
+    }
+</style>
+<div class="cart">
+    {{>cart-display}}
+    <br>
+    {{>checkout-form}}
+    {{>shipping-options}}
+</div>
+
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">

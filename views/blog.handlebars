@@ -1,0 +1,202 @@
+<link rel="stylesheet" href="../../css/loading.css">
+<style>
+    #blog-display {
+        margin-left: 12vh;
+    }
+
+    .blogs {
+        font-family: "Raleway";
+        padding: 4vh;
+    }
+
+    .blogs__header-image {
+        width: 100%;
+        height: 25vh;
+        background-image: url('img/header3.jpg');
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .blogs__header-image h1 {
+        font-family: 'Raleway';
+        font-size: 6vh;
+        color: white;
+        text-align: center;
+    }
+
+    .blogs__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: solid rgb(196, 196, 196) 1px;
+        margin-bottom: 1vh;
+        width: 60%;
+    }
+
+    .blogs__row-alt {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: solid rgb(196, 196, 196) 1px;
+        margin-bottom: 1vh;
+        width: 100%;
+    }
+
+    .blogs__column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+    }
+
+    .blogs__image {
+        height: 20%;
+        width: 18%;
+        margin-right: 2vh;
+        border-radius: 2%;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.219);
+    }
+
+    .blogs__title {
+        font-size: 3vh;
+        text-transform: uppercase;
+    }
+
+    .blogs__description {
+        padding: 2vh;
+        font-size: 2vh;
+    }
+
+    .blogs__date {
+        font-size: 1vh;
+        margin-left: 2vh;
+    }
+
+    .blogs__link {
+        padding: 1vh;
+        font-weight: bold;
+        text-decoration: none;
+        border-bottom: none;
+        color: black;
+        margin-left: 1vh;
+    }
+</style>
+
+
+<style>
+    .results {
+        padding: 2vh;
+    }
+
+    .results__title {
+        font-size: 5vh;
+    }
+
+    .results__row {
+        margin-top: 4vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+
+    .results__buttons {
+        width: 100%;
+        padding: 2vh;
+        margin-left: 5vh;
+    }
+
+    .results__buttons>button {
+        padding: 2vh;
+        width: 100%;
+    }
+
+    .result__paginate {
+        margin-top: 2%;
+        margin-left: 5%;
+    }
+
+
+    @media(orientation:portrait) {
+        .results__row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        #blog-display {
+            margin-left: 0vh;
+        }
+
+        .blogs__row {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            border-bottom: solid rgb(196, 196, 196) 1px;
+            margin-bottom: 1vh;
+            width: 100%;
+        }
+
+        .results__buttons {
+            width: 100%;
+            padding: 0vh;
+            margin-left: 0vh;
+        }
+
+        .result__paginate {
+            margin-top: 0;
+            margin-left: 0;
+        }
+
+    }
+</style>
+
+
+
+<div class="results">
+
+    <div class="results__row">
+
+        <div class="results__buttons">
+            <span class="results__title">Recent Articles</span>
+            <p style="font-size:2vh">Get All The Recent News On Mushrooms</p>
+            <br>
+            <button onclick="_XML('GET','blog','?sort=-timeCreated&page=1&limit=10','blog-display')">NEWEST</button>
+            <button onclick="_XML('GET','blog','?sort=timeCreated&page=1&limit=10','blog-display')">OLDEST</button>
+            <br>
+            <br>
+        </div>
+        <div id="blog-display"></div>
+
+
+    </div>
+    <div class="result__paginate" id="blog-paginate"></div>
+    <br>
+</div>
+
+
+
+<input hidden type="hidden" id="_csrf" name="_csrf" value="{{csrfToken}}">
+
+<div id="loading"></div>
+
+
+{{!-- UX ENGINE --}}
+<script src="./../scripts/engine/functions.js"></script>
+<script src="./../scripts/engine/bodyCreate.js"></script>
+<script src="./../scripts/engine/errorHandling.js"></script>
+<script src="./../scripts/engine/templates.js"></script>
+<script src="./../scripts/engine/display.js"></script>
+<script src="./../scripts/engine/pagination.js"></script>
+<script>
+    _XML('GET', 'blog', '?page=1&limit=3', 'blog-display', '');
+</script>
